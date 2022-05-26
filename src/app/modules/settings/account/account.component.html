@@ -1,0 +1,60 @@
+<div class="w-full max-w-3xl">
+  <!-- Form -->
+  <form [formGroup]="accountForm">
+    <!-- Section -->
+    <div class="w-full"></div>
+    <div class="grid sm:grid-cols-4 gap-6 w-full mt-8">
+      <!-- Username -->
+      <div class="sm:col-span-2">
+        <mat-form-field class="fuse-mat-emphasized-affix w-full">
+          <mat-label>Username</mat-label>
+          <input [formControlName]="'username'" matInput />
+          <mat-error
+            *ngIf="accountForm.get('username').hasError('not-available')"
+          >
+            This username isn't available, try another
+          </mat-error>
+          <mat-error *ngIf="accountForm.get('username').hasError('required')">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Email -->
+      <div class="sm:col-span-2">
+        <mat-form-field class="w-full">
+          <mat-label>Email</mat-label>
+          <mat-icon
+            class="icon-size-5"
+            [svgIcon]="'heroicons_solid:mail'"
+            matPrefix
+          ></mat-icon>
+          <input [formControlName]="'email'" matInput />
+          <mat-error *ngIf="accountForm.get('email').hasError('not-available')">
+            Email address not available, try another
+          </mat-error>
+          <mat-error *ngIf="accountForm.get('email').hasError('required')">
+            Email address is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="sm:col-span-4">
+        <!-- Submit button -->
+        <button
+          class="fuse-mat-button-large w-full"
+          mat-flat-button
+          [color]="'primary'"
+          [disabled]="accountForm.disabled"
+          (click)="submit()"
+        >
+          <span *ngIf="!accountForm.disabled"> Update account </span>
+          <mat-progress-spinner
+            *ngIf="accountForm.disabled"
+            [diameter]="24"
+            [mode]="'indeterminate'"
+          ></mat-progress-spinner>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
