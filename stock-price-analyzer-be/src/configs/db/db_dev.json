@@ -1,7 +1,0 @@
-{
-  "URI": "192.168.7.100",
-  "PORT": 3306,
-  "DB": "stock-price-analyzer",
-  "USER": "core",
-  "PASSWORD": "1234abc."
-}
