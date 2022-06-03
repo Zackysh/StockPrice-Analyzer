@@ -64,6 +64,8 @@ export class AuthService {
   }
 
   signUp(user: UserSignUp): Observable<AuthResponse> {
+    console.log('signup');
+
     return this._httpClient.post<AuthResponse>('core/user/sign-up', user);
   }
 

@@ -52,7 +52,13 @@ export class AuthSignUpComponent implements OnInit {
 
     this.signUpForm.disable();
     this.#asyncValidation()
-      .pipe(switchMap(() => this._authService.signUp(this.signUpForm.value)))
+      .pipe(
+        catchError((err) => {
+          console.log(err);
+          return err;
+        }),
+        switchMap(() => this._authService.signUp(this.signUpForm.value))
+      )
       .subscribe(() => this.#navigateSignIn());
   }
 
@@ -60,10 +66,10 @@ export class AuthSignUpComponent implements OnInit {
     return combineLatest([
       this._authService
         .checkUser(this.signUpForm.value.email)
-        .pipe(catchError((err: Observable<number>) => err)),
+        .pipe(catchError((err: any) => of(err))),
       this._authService
         .checkUser(this.signUpForm.value.username)
-        .pipe(catchError((err: Observable<number>) => err)),
+        .pipe(catchError((err: any) => of(err))),
     ]).pipe(
       switchMap((res) => {
         if (res[0] === 200) {
@@ -77,6 +83,7 @@ export class AuthSignUpComponent implements OnInit {
           const ctrl = this.signUpForm.get('username');
           ctrl.setErrors({ ...ctrl.errors, 'not-available': 'true' });
         }
+        console.log('here');
 
         return [200, 404].includes(res[0]) && [200, 404].includes(res[1])
           ? of(null)

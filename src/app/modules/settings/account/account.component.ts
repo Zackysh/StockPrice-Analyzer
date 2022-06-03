@@ -82,6 +82,7 @@ export class SettingsAccountComponent implements OnInit {
       }
 
       this._userService.update(this.accountForm.value).subscribe(() => {
+        this.user = { ...this.user, ...this.accountForm.value };
         Swal.fire('Profile updated!', '', 'success');
         this.accountForm.enable();
         this._changeDetectorRef.markForCheck();
