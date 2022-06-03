@@ -5,6 +5,8 @@ import { Route, RouterModule } from '@angular/router';
 import { AnalyticsComponent } from './analytics.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
+import { DxChartModule, DxSelectBoxModule } from 'devextreme-angular';
+import { MatSelectModule } from '@angular/material/select';
 
 const analyticsRoutes: Route[] = [
   {
@@ -20,6 +22,9 @@ const analyticsRoutes: Route[] = [
     MatIconModule,
     SharedModule,
     MatTableModule,
+    DxChartModule,
+    DxSelectBoxModule,
+    MatSelectModule,
     RouterModule.forChild(analyticsRoutes),
   ],
 })

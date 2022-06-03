@@ -1,6 +1,7 @@
 export interface Stock {
   date: Date;
   close: number;
+  predicted?: number;
 }
 
 export interface CompleteStock {
