@@ -9,14 +9,14 @@ import { LayoutComponent } from 'app/layout/layout.component';
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const appRoutes: Route[] = [
   // Redirect empty path to '/root'
-  { path: '', pathMatch: 'full', redirectTo: 'root' },
+  { path: '', pathMatch: 'full', redirectTo: 'analytics' },
 
   // Redirect signed in user to the '/root'
   //
   // After the user signs in, the sign in page will redirect the user to the 'signed-in-redirect'
   // path. Below is another redirection for that path to redirect the user to the desired
   // location. This is a small convenience to keep all main routes together here on this file.
-  { path: 'signed-in-redirect', pathMatch: 'full', redirectTo: 'root' },
+  { path: 'signed-in-redirect', pathMatch: 'full', redirectTo: 'analytics' },
 
   // Auth routes for guests
   {
@@ -112,10 +112,10 @@ export const appRoutes: Route[] = [
           ),
       },
       {
-        path: 'root',
+        path: 'analytics',
         loadChildren: () =>
-          import('app/modules/admin/example/example.module').then(
-            (m) => m.ExampleModule
+          import('app/modules/analytics/analytics.module').then(
+            (m) => m.AnalyticsModule
           ),
       },
     ],

@@ -3,36 +3,37 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
   {
-    id: 'example',
-    title: 'Example',
+    id: 'analytics',
+    title: 'Analytics',
     type: 'basic',
     icon: 'heroicons_outline:chart-pie',
+    link: '/analytics',
   },
 ];
 export const compactNavigation: FuseNavigationItem[] = [
   {
-    id: 'example',
-    title: 'Example',
+    id: 'analytics',
+    title: 'Analytics',
     type: 'basic',
     icon: 'heroicons_outline:chart-pie',
-    link: '/example',
+    link: '/analytics',
   },
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
   {
-    id: 'example',
-    title: 'Example',
+    id: 'analytics',
+    title: 'Analytics',
     type: 'basic',
     icon: 'heroicons_outline:chart-pie',
-    link: '/example',
+    link: '/analytics',
   },
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
   {
-    id: 'example',
-    title: 'Example',
+    id: 'analytics',
+    title: 'Analytics',
     type: 'basic',
     icon: 'heroicons_outline:chart-pie',
-    link: '/example',
+    link: '/analytics',
   },
 ];
